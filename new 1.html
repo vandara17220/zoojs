@@ -1,0 +1,67 @@
+<html>
+<head>
+<script language="JavaScript1.1">
+<!--
+var slideimages=new Array()
+var slidelinks=new Array()
+
+function slideshowimages()
+{
+    for (i=0;i<slideshowimages.arguments.length;i++)
+    {
+	slideimages[i]=new Image()
+	slideimages[i].src=slideshowimages.arguments[i]
+	}
+}
+
+
+function slideshowlinks()
+{
+    for (i=0;i<slideshowlinks.arguments.length;i++)
+	slidelinks[i]=slideshowlinks.arguments[i]
+}
+
+
+function gotoshow()
+{
+    if (!window.winslide||winslide.closed)
+	winslide=window.open(slidelinks[whichlink])
+	else
+	winslide.location=slidelinks[whichlink]
+	winslide.focus()
+}
+//-->
+</script>
+</head>
+
+
+<body>
+<a href="javascript:gotoshow()"><img src="animalhome.png" name="slide" width="800" height="500" border=0></a>
+<script>
+<!--
+//configuring parts of images and respective links
+slideshowimages("animalhome.png","cam.png","ct.jpg","vi.jpg","jb.jpg","an.png")
+slideshowlinks("file:///C:/Users/Bharadwaj/Desktop/animalkingdom.html","file:///C:/Users/Bharadwaj/Desktop/images.html","file:///C:/Users/Bharadwaj/Desktop/Contact%20Us.html","file:///C:/Users/Bharadwaj/Desktop/visitor_info.html","file:///C:/Users/Bharadwaj/Desktop/Jobs.html","file:///C:/Users/Bharadwaj/Desktop/Membership.html")
+//configuring the speed of the slideshow
+
+var slideshowspeed=2000
+var whichlink=0
+var whichimage=0
+
+function slideit()
+{
+if (!document.images)
+return
+document.images.slide.src=slideimages[whichimage].src
+whichlink=whichimage
+if (whichimage<slideimages.length-1)
+whichimage++
+else
+whichimage=0
+setTimeout("slideit()",slideshowspeed)
+}
+slideit()
+//-->
+</script>
+</body>
+</html>
